@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PictureListDetailViewController : UIViewController
+@class Picture;
 
-@property (strong, nonatomic) id detailItem;
+@interface PictureListDetailViewController : UITableViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) Picture *picture;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *locationLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @end

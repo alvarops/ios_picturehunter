@@ -16,6 +16,9 @@
     if (self) {
         
         _title = title;
+        _location = location;
+        _date = date;
+        
         return self;
         
     }

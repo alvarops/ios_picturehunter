@@ -71,7 +71,6 @@
 		F260263B173E95BA00149D25 = {
 			isa = PBXGroup;
 			children = (
-				F2602670173EA12100149D25 /* CoreLocation.framework */,
 				F260264D173E95BA00149D25 /* PictureHunter */,
 				F2602646173E95BA00149D25 /* Frameworks */,
 				F2602645173E95BA00149D25 /* Products */,
@@ -89,6 +88,7 @@
 		F2602646173E95BA00149D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F2602670173EA12100149D25 /* CoreLocation.framework */,
 				F2602647173E95BA00149D25 /* UIKit.framework */,
 				F2602649173E95BA00149D25 /* Foundation.framework */,
 				F260264B173E95BA00149D25 /* CoreGraphics.framework */,
