@@ -19,6 +19,10 @@
 		F2602661173E95BA00149D25 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F260265F173E95BA00149D25 /* MainStoryboard.storyboard */; };
 		F2602664173E95BA00149D25 /* PictureListMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602663173E95BA00149D25 /* PictureListMasterViewController.m */; };
 		F2602667173E95BA00149D25 /* PictureListDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602666173E95BA00149D25 /* PictureListDetailViewController.m */; };
+		F260266F173E9AAE00149D25 /* PictureList.m in Sources */ = {isa = PBXBuildFile; fileRef = F260266E173E9AAE00149D25 /* PictureList.m */; };
+		F2602671173EA12100149D25 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2602670173EA12100149D25 /* CoreLocation.framework */; };
+		F2602674173EA1D500149D25 /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602673173EA1D500149D25 /* CoreLocationController.m */; };
+		F2602677173EA67C00149D25 /* PictureDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602676173EA67C00149D25 /* PictureDataController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,13 @@
 		F2602663173E95BA00149D25 /* PictureListMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureListMasterViewController.m; sourceTree = "<group>"; };
 		F2602665173E95BA00149D25 /* PictureListDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PictureListDetailViewController.h; sourceTree = "<group>"; };
 		F2602666173E95BA00149D25 /* PictureListDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PictureListDetailViewController.m; sourceTree = "<group>"; };
+		F260266D173E9AAE00149D25 /* PictureList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureList.h; sourceTree = "<group>"; };
+		F260266E173E9AAE00149D25 /* PictureList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureList.m; sourceTree = "<group>"; };
+		F2602670173EA12100149D25 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		F2602672173EA1D500149D25 /* CoreLocationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreLocationController.h; sourceTree = "<group>"; };
+		F2602673173EA1D500149D25 /* CoreLocationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreLocationController.m; sourceTree = "<group>"; };
+		F2602675173EA67C00149D25 /* PictureDataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureDataController.h; sourceTree = "<group>"; };
+		F2602676173EA67C00149D25 /* PictureDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureDataController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F2602671173EA12100149D25 /* CoreLocation.framework in Frameworks */,
 				F2602648173E95BA00149D25 /* UIKit.framework in Frameworks */,
 				F260264A173E95BA00149D25 /* Foundation.framework in Frameworks */,
 				F260264C173E95BA00149D25 /* CoreGraphics.framework in Frameworks */,
@@ -59,6 +71,7 @@
 		F260263B173E95BA00149D25 = {
 			isa = PBXGroup;
 			children = (
+				F2602670173EA12100149D25 /* CoreLocation.framework */,
 				F260264D173E95BA00149D25 /* PictureHunter */,
 				F2602646173E95BA00149D25 /* Frameworks */,
 				F2602645173E95BA00149D25 /* Products */,
@@ -94,6 +107,12 @@
 				F2602665173E95BA00149D25 /* PictureListDetailViewController.h */,
 				F2602666173E95BA00149D25 /* PictureListDetailViewController.m */,
 				F260264E173E95BA00149D25 /* Supporting Files */,
+				F260266D173E9AAE00149D25 /* PictureList.h */,
+				F260266E173E9AAE00149D25 /* PictureList.m */,
+				F2602672173EA1D500149D25 /* CoreLocationController.h */,
+				F2602673173EA1D500149D25 /* CoreLocationController.m */,
+				F2602675173EA67C00149D25 /* PictureDataController.h */,
+				F2602676173EA67C00149D25 /* PictureDataController.m */,
 			);
 			path = PictureHunter;
 			sourceTree = "<group>";
@@ -183,6 +202,9 @@
 				F2602658173E95BA00149D25 /* PictureListAppDelegate.m in Sources */,
 				F2602664173E95BA00149D25 /* PictureListMasterViewController.m in Sources */,
 				F2602667173E95BA00149D25 /* PictureListDetailViewController.m in Sources */,
+				F260266F173E9AAE00149D25 /* PictureList.m in Sources */,
+				F2602674173EA1D500149D25 /* CoreLocationController.m in Sources */,
+				F2602677173EA67C00149D25 /* PictureDataController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

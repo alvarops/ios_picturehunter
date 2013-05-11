@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreLocationController.h"
 
-@interface PictureListMasterViewController : UITableViewController
+@interface PictureListMasterViewController : UITableViewController <CoreLocationControllerDelegate>
+//CoreLocationController *CLController;
+@property (nonatomic, retain) CoreLocationController *CLController;
 
 @end
