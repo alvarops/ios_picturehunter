@@ -10,6 +10,7 @@
 #import "PictureListDetailViewController.h"
 #import "PictureDataController.h"
 #import "Picture.h"
+#import "AddPictureViewController.h"
 
 /*
 @interface PictureListMasterViewController () {
@@ -125,4 +126,26 @@
     }
 }
 
+- (IBAction)done:(UIStoryboardSegue *)segue
+{
+    
+    if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
+        AddPictureViewController *addController = [segue sourceViewController];
+        
+        if (addController.picture) {
+            [self.dataController addPictureWithPicture:addController.picture];
+            [[self tableView] reloadData];
+        }
+        
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+}
+
+- (IBAction)cancel:(UIStoryboardSegue *)segue
+{
+    if ([[segue identifier] isEqualToString:@"CancelInput"]) {
+        [self dismissViewControllerAnimated:YES completion:NULL];
+    }
+    
+}
 @end

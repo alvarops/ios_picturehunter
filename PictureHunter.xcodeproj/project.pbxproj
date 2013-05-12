@@ -23,6 +23,7 @@
 		F2602674173EA1D500149D25 /* CoreLocationController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602673173EA1D500149D25 /* CoreLocationController.m */; };
 		F2602677173EA67C00149D25 /* PictureDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602676173EA67C00149D25 /* PictureDataController.m */; };
 		F260267A173EBEEA00149D25 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602679173EBEEA00149D25 /* Picture.m */; };
+		F260267D173F0B1600149D25 /* AddPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F260267C173F0B1600149D25 /* AddPictureViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,8 @@
 		F2602676173EA67C00149D25 /* PictureDataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureDataController.m; sourceTree = "<group>"; };
 		F2602678173EBEEA00149D25 /* Picture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Picture.h; sourceTree = "<group>"; };
 		F2602679173EBEEA00149D25 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
+		F260267B173F0B1600149D25 /* AddPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPictureViewController.h; sourceTree = "<group>"; };
+		F260267C173F0B1600149D25 /* AddPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPictureViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				F2602673173EA1D500149D25 /* CoreLocationController.m */,
 				F2602675173EA67C00149D25 /* PictureDataController.h */,
 				F2602676173EA67C00149D25 /* PictureDataController.m */,
+				F260267B173F0B1600149D25 /* AddPictureViewController.h */,
+				F260267C173F0B1600149D25 /* AddPictureViewController.m */,
 			);
 			path = PictureHunter;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				F2602674173EA1D500149D25 /* CoreLocationController.m in Sources */,
 				F2602677173EA67C00149D25 /* PictureDataController.m in Sources */,
 				F260267A173EBEEA00149D25 /* Picture.m in Sources */,
+				F260267D173F0B1600149D25 /* AddPictureViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
