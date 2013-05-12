@@ -159,6 +159,27 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ImageCell" rowHeight="200" id="y0u-Q0-8po">
+                                        <rect key="frame" x="0.0" y="132" width="320" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Default.png" translatesAutoresizingMaskIntoConstraints="NO" id="8gg-bV-3JX">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="179" id="uHa-gO-dxa"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="8gg-bV-3JX" firstAttribute="leading" secondItem="y0u-Q0-8po" secondAttribute="leading" constant="20" type="default" id="3n2-NM-a8D"/>
+                                            <constraint firstItem="8gg-bV-3JX" firstAttribute="top" secondItem="y0u-Q0-8po" secondAttribute="top" type="default" id="E85-vd-YD9"/>
+                                            <constraint firstAttribute="trailing" secondItem="8gg-bV-3JX" secondAttribute="trailing" constant="20" type="default" id="rfH-r1-GiA"/>
+                                        </constraints>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -169,6 +190,7 @@
                     <navigationItem key="navigationItem" id="6a5-s2-f55"/>
                     <connections>
                         <outlet property="dateLabel" destination="q0T-Xx-Lap" id="Pxa-Xg-DmB"/>
+                        <outlet property="imageView" destination="8gg-bV-3JX" id="ZbK-Hx-skE"/>
                         <outlet property="locationLabel" destination="Xkr-fZ-XFi" id="PFv-Uf-Hev"/>
                         <outlet property="titleLabel" destination="gTa-K9-daL" id="wXb-1E-Kt2"/>
                     </connections>
@@ -306,6 +328,9 @@
             <point key="canvasLocation" x="1344" y="71"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Default.png" width="320" height="480"/>
+    </resources>
     <classes>
         <class className="AddPictureViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/AddPictureViewController.h"/>
@@ -323,6 +348,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/PictureListDetailViewController.h"/>
             <relationships>
                 <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="locationLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
             </relationships>

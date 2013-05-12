@@ -14,7 +14,6 @@
 @property (nonatomic, strong) NSData *dataToParse;
 @property (nonatomic, strong) NSMutableArray *workingArray;
 @property (nonatomic, strong) Picture *workingEntry;
-
 @end
 
 @implementation ParseOperations
@@ -53,8 +52,9 @@
             NSLog(@"Item: %@", item);
             NSString *name = [item objectForKey:@"name"];
             NSDate *today = [NSDate date];
-            Picture *pic = [[Picture alloc] initWithTitle:name date:today location:name];
+            Picture *pic = [[Picture alloc] initWithTitle:name date:today location:name urlString:name];
             [self.workingArray addObject:pic];
+            
         }
     }
     
@@ -68,5 +68,7 @@
     self.workingArray = nil;
     self.dataToParse = nil;
 }
+
+
 
 @end

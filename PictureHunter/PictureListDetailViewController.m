@@ -8,8 +8,10 @@
 
 #import "PictureListDetailViewController.h"
 #import "Picture.h"
+#import "ImageDownloader.h"
 
 @interface PictureListDetailViewController ()
+@property (nonatomic, strong) NSMutableDictionary *imageDownloadsInProgress;
 - (void)configureView;
 @end
 
@@ -33,21 +35,16 @@
     static NSDateFormatter *formatter = nil;
     
     if (formatter == nil) {
-        
         formatter = [[NSDateFormatter alloc] init];
-        
         [formatter setDateStyle:NSDateFormatterMediumStyle];
-        
     }
     
     if (thePicture) {
-        
         self.titleLabel.text = thePicture.title;
-        
         self.locationLabel.text = thePicture.location;
-        
         self.dateLabel.text = [formatter stringFromDate:(NSDate *)thePicture.date];
-        
+        [self startImageDownload:thePicture];
+        //
     }
 }
 
@@ -62,6 +59,27 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    // terminate all pending download connections
+    NSArray *allDownloads = [self.imageDownloadsInProgress allValues];
+    [allDownloads makeObjectsPerformSelector:@selector(cancelDownload)];
+    
+    [self.imageDownloadsInProgress removeAllObjects];
 }
+
+- (void)startImageDownload:(Picture *)picture
+{
+    ImageDownloader *iconDownloader = [self.imageDownloadsInProgress objectForKey:picture.urlString];
+    if (iconDownloader == nil)
+    {
+        iconDownloader = [[ImageDownloader alloc] init];
+        iconDownloader.picture = picture;
+        [iconDownloader setCompletionHandler:^{
+            [self.imageView setImage:picture.image];
+        }];
+        [self.imageDownloadsInProgress setObject:iconDownloader forKey:picture.urlString];
+        [iconDownloader startDownload];
+    }
+}
+
 
 @end

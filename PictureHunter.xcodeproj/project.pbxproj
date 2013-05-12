@@ -26,6 +26,7 @@
 		F260267D173F0B1600149D25 /* AddPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F260267C173F0B1600149D25 /* AddPictureViewController.m */; };
 		F260267F173FBA5600149D25 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F260267E173FBA5600149D25 /* CFNetwork.framework */; };
 		F2602682173FBC7600149D25 /* ParseOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602681173FBC7600149D25 /* ParseOperations.m */; };
+		F2602685173FE85700149D25 /* ImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602684173FE85700149D25 /* ImageDownloader.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,8 @@
 		F260267E173FBA5600149D25 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		F2602680173FBC7600149D25 /* ParseOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseOperations.h; sourceTree = "<group>"; };
 		F2602681173FBC7600149D25 /* ParseOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseOperations.m; sourceTree = "<group>"; };
+		F2602683173FE85700149D25 /* ImageDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageDownloader.h; sourceTree = "<group>"; };
+		F2602684173FE85700149D25 /* ImageDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageDownloader.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +130,8 @@
 				F260267C173F0B1600149D25 /* AddPictureViewController.m */,
 				F2602680173FBC7600149D25 /* ParseOperations.h */,
 				F2602681173FBC7600149D25 /* ParseOperations.m */,
+				F2602683173FE85700149D25 /* ImageDownloader.h */,
+				F2602684173FE85700149D25 /* ImageDownloader.m */,
 			);
 			path = PictureHunter;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 				F260267A173EBEEA00149D25 /* Picture.m in Sources */,
 				F260267D173F0B1600149D25 /* AddPictureViewController.m in Sources */,
 				F2602682173FBC7600149D25 /* ParseOperations.m in Sources */,
+				F2602685173FE85700149D25 /* ImageDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,9 +14,8 @@
 
 @property (strong, nonatomic) Picture *picture;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *locationLabel;
-
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
