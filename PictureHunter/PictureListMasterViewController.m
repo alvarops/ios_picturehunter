@@ -13,14 +13,16 @@
 #import "AddPictureViewController.h"
 
 
-/*
-@interface PictureListMasterViewController () {
-    NSMutableArray *_objects;
-}
+
+@interface PictureListMasterViewController ()
+@property (nonatomic, strong, readwrite) IBOutlet UIActivityIndicatorView *   activityIndicator;
+
 @end
-*/
+
 
 @implementation PictureListMasterViewController
+
+@synthesize activityIndicator = _activityIndicator;
 
 - (void)awakeFromNib
 {
@@ -50,7 +52,7 @@
     for (Picture *picture in pictures){
         [self.dataController addPictureWithPicture:picture];
     }
-    [self.tableView reloadData];
+    [[self tableView] reloadData];
 pictures = nil;
 }
 
@@ -144,7 +146,7 @@ pictures = nil;
         AddPictureViewController *addController = [segue sourceViewController];
         
         if (addController.picture) {
-            [self.dataController addPictureWithPicture:addController.picture];
+            [self.dataController createPictureWithPicture:addController.picture ];
             [[self tableView] reloadData];
         }
         
@@ -159,4 +161,19 @@ pictures = nil;
     }
     
 }
+
+#pragma mark * Status management
+
+// These methods are used by the core transfer code to update the UI.
+
+- (void)sendDidStart
+{
+    [self.activityIndicator startAnimating];
+}
+
+- (void)sendDidStopWithStatus:(NSString *)statusString
+{
+    [self.activityIndicator stopAnimating];
+}
+
 @end

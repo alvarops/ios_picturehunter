@@ -18,5 +18,6 @@
 - (Picture *)objectInListAtIndex:(NSUInteger)theIndex;
 - (void)addPictureWithPicture:(Picture *)picture;
 - (void)initializeDefaultDataList;
+- (void)createPictureWithPicture:(Picture *)picture;
 
 @end

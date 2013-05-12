@@ -44,7 +44,6 @@
         self.locationLabel.text = thePicture.location;
         self.dateLabel.text = [formatter stringFromDate:(NSDate *)thePicture.date];
         [self startImageDownload:thePicture];
-        //
     }
 }
 

@@ -126,13 +126,15 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
     if ((textField == self.titleInput) || (textField == self.locationInput)) {
-        
         [textField resignFirstResponder];
-        
     }
     
     return YES;
     
+}
+
+-(IBAction)selectImage:(UITextField *)textField{
+    [textField resignFirstResponder];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -146,12 +148,87 @@
             NSDate *today = [NSDate date];
             
             picture = [[Picture alloc] initWithTitle:self.titleInput.text date:today location:self.locationInput.text];
-            
+            picture.image = _imageView.image;
             self.picture = picture;
             
         }
         
     }
     
+}
+
+- (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
+{
+    if (self.imageView.isAnimating)
+        [self.imageView stopAnimating];
+	
+    if ([UIImagePickerController isSourceTypeAvailable:sourceType])
+    {
+        NSLog(@"tap");
+        UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
+        imagePicker.delegate = self;
+        [self presentViewController:imagePicker animated:YES completion:NULL];
+    }
+}
+
+- (IBAction)pickPicture:(UIButton *)sender {
+    [self showImagePicker:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+}
+
+#pragma mark - Image picker delegate methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)selectedImage editingInfo:(NSDictionary *)editingInfo
+{
+    [self.imageView setImage:selectedImage];
+    /*
+    APLEvent *event = self.event;
+	NSManagedObjectContext *context = event.managedObjectContext;
+    
+	// If the event already has a photo, delete it.
+	if (event.photo) {
+		[context deleteObject:event.photo];
+	}
+	
+	// Create a new photo object and set the image.
+	APLPhoto *photo = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
+	photo.image = selectedImage;
+	
+	// Associate the photo object with the event.
+	event.photo = photo;
+	
+	// Create a thumbnail version of the image for the event object.
+	CGSize size = selectedImage.size;
+	CGFloat ratio = 0;
+	if (size.width > size.height) {
+		ratio = 44.0 / size.width;
+	}
+	else {
+		ratio = 44.0 / size.height;
+	}
+	CGRect rect = CGRectMake(0.0, 0.0, ratio * size.width, ratio * size.height);
+	
+	UIGraphicsBeginImageContext(rect.size);
+	[selectedImage drawInRect:rect];
+	event.thumbnail = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	
+	// Commit the change.
+	NSError *error = nil;
+	if (![event.managedObjectContext save:&error]) {
+        // Replace this implementation with code to handle the error appropriately.
+        // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+        NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+        abort();
+	}
+    */
+	// Update the user interface appropriately.
+	
+	[self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+	// The user canceled -- simply dismiss the image picker.
+	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 @end
