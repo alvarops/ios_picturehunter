@@ -24,6 +24,8 @@
 		F2602677173EA67C00149D25 /* PictureDataController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602676173EA67C00149D25 /* PictureDataController.m */; };
 		F260267A173EBEEA00149D25 /* Picture.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602679173EBEEA00149D25 /* Picture.m */; };
 		F260267D173F0B1600149D25 /* AddPictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F260267C173F0B1600149D25 /* AddPictureViewController.m */; };
+		F260267F173FBA5600149D25 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F260267E173FBA5600149D25 /* CFNetwork.framework */; };
+		F2602682173FBC7600149D25 /* ParseOperations.m in Sources */ = {isa = PBXBuildFile; fileRef = F2602681173FBC7600149D25 /* ParseOperations.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,9 @@
 		F2602679173EBEEA00149D25 /* Picture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Picture.m; sourceTree = "<group>"; };
 		F260267B173F0B1600149D25 /* AddPictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddPictureViewController.h; sourceTree = "<group>"; };
 		F260267C173F0B1600149D25 /* AddPictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddPictureViewController.m; sourceTree = "<group>"; };
+		F260267E173FBA5600149D25 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		F2602680173FBC7600149D25 /* ParseOperations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseOperations.h; sourceTree = "<group>"; };
+		F2602681173FBC7600149D25 /* ParseOperations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseOperations.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F260267F173FBA5600149D25 /* CFNetwork.framework in Frameworks */,
 				F2602671173EA12100149D25 /* CoreLocation.framework in Frameworks */,
 				F2602648173E95BA00149D25 /* UIKit.framework in Frameworks */,
 				F260264A173E95BA00149D25 /* Foundation.framework in Frameworks */,
@@ -91,6 +97,7 @@
 		F2602646173E95BA00149D25 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F260267E173FBA5600149D25 /* CFNetwork.framework */,
 				F2602670173EA12100149D25 /* CoreLocation.framework */,
 				F2602647173E95BA00149D25 /* UIKit.framework */,
 				F2602649173E95BA00149D25 /* Foundation.framework */,
@@ -103,9 +110,9 @@
 			isa = PBXGroup;
 			children = (
 				F2602656173E95BA00149D25 /* PictureListAppDelegate.h */,
+				F2602657173E95BA00149D25 /* PictureListAppDelegate.m */,
 				F2602678173EBEEA00149D25 /* Picture.h */,
 				F2602679173EBEEA00149D25 /* Picture.m */,
-				F2602657173E95BA00149D25 /* PictureListAppDelegate.m */,
 				F260265F173E95BA00149D25 /* MainStoryboard.storyboard */,
 				F2602662173E95BA00149D25 /* PictureListMasterViewController.h */,
 				F2602663173E95BA00149D25 /* PictureListMasterViewController.m */,
@@ -118,6 +125,8 @@
 				F2602676173EA67C00149D25 /* PictureDataController.m */,
 				F260267B173F0B1600149D25 /* AddPictureViewController.h */,
 				F260267C173F0B1600149D25 /* AddPictureViewController.m */,
+				F2602680173FBC7600149D25 /* ParseOperations.h */,
+				F2602681173FBC7600149D25 /* ParseOperations.m */,
 			);
 			path = PictureHunter;
 			sourceTree = "<group>";
@@ -211,6 +220,7 @@
 				F2602677173EA67C00149D25 /* PictureDataController.m in Sources */,
 				F260267A173EBEEA00149D25 /* Picture.m in Sources */,
 				F260267D173F0B1600149D25 /* AddPictureViewController.m in Sources */,
+				F2602682173FBC7600149D25 /* ParseOperations.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

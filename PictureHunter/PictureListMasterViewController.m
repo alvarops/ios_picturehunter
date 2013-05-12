@@ -12,6 +12,7 @@
 #import "Picture.h"
 #import "AddPictureViewController.h"
 
+
 /*
 @interface PictureListMasterViewController () {
     NSMutableArray *_objects;
@@ -24,6 +25,7 @@
 - (void)awakeFromNib
 {
     [super awakeFromNib];
+    
     self.dataController = [[PictureDataController alloc] init];
 }
 
@@ -43,6 +45,15 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)addPicturesWithPictures:(NSArray *)pictures {
+    for (Picture *picture in pictures){
+        [self.dataController addPictureWithPicture:picture];
+    }
+    [self.tableView reloadData];
+pictures = nil;
+}
+
 /*
 - (void)insertNewObject:(id)sender
 {

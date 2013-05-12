@@ -15,14 +15,14 @@
     
     self.masterPictureList = pictureList;
     
-    Picture *picture;
+   /* Picture *picture;
     
     NSDate *today = [NSDate date];
     
     picture = [[Picture alloc] initWithTitle:@"Pigeon" date:today location:@"location"];
     
     [self addPictureWithPicture:picture];
-    
+    */
 }
 
 - (void)setMasterPictureList:(NSMutableArray *)newList {
@@ -37,11 +37,8 @@
 - (id)init {
     
     if (self = [super init]) {
-        
         [self initializeDefaultDataList];
-        
         return self;
-        
     }
     
     return nil;

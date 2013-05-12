@@ -69,6 +69,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="13" id="xsh-gh-w6y"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17" sceneMemberID="firstResponder"/>
             </objects>
@@ -329,6 +332,7 @@
             <relationships>
                 <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="UIStoryboardSegue" superclassName="NSObject">

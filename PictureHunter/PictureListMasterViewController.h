@@ -12,4 +12,7 @@
 @interface PictureListMasterViewController : UITableViewController
 
 @property (nonatomic, strong) PictureDataController *dataController;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+-(void)addPicturesWithPictures:(NSArray *)pictures;
 @end
