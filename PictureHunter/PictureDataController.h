@@ -19,5 +19,5 @@
 - (void)addPictureWithPicture:(Picture *)picture;
 - (void)initializeDefaultDataList;
 - (void)createPictureWithPicture:(Picture *)picture;
-
+-(void)clear;
 @end

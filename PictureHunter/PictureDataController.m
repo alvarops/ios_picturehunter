@@ -25,6 +25,11 @@
     */
 }
 
+-(void)clear
+{
+    [_masterPictureList removeAllObjects];
+}
+
 - (void)setMasterPictureList:(NSMutableArray *)newList {
     
     if (_masterPictureList != newList) {

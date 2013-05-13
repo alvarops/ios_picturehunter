@@ -27,6 +27,12 @@ static NSString *const PicturesFeed =
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [self refreshPictures];
+    return YES;
+}
+
+-(void)refreshPictures
+{
     // Override point for customization after application launch.
     
     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:PicturesFeed]];
@@ -41,10 +47,7 @@ static NSString *const PicturesFeed =
     
     // show in the status bar that network activity is starting
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
-    return YES;
 }
-
 
 // -------------------------------------------------------------------------------
 //	handleError:error

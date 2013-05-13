@@ -11,7 +11,7 @@
 #import "PictureDataController.h"
 #import "Picture.h"
 #import "AddPictureViewController.h"
-
+#import "PictureListAppDelegate.h"
 
 
 @interface PictureListMasterViewController ()
@@ -49,6 +49,7 @@
 }
 
 -(void)addPicturesWithPictures:(NSArray *)pictures {
+    [[self dataController] clear];
     for (Picture *picture in pictures){
         [self.dataController addPictureWithPicture:picture];
     }
@@ -147,7 +148,7 @@ pictures = nil;
         
         if (addController.picture) {
             [self.dataController createPictureWithPicture:addController.picture ];
-            [[self tableView] reloadData];
+            [self refreshAll];
         }
         
         [self dismissViewControllerAnimated:YES completion:NULL];
@@ -162,6 +163,12 @@ pictures = nil;
     
 }
 
+-(void) refreshAll
+{
+    PictureListAppDelegate *appDelegate = (PictureListAppDelegate *)[[UIApplication sharedApplication] delegate];
+    //[[self dataController] initializeDefaultDataList];
+    [appDelegate refreshPictures];
+}
 #pragma mark * Status management
 
 // These methods are used by the core transfer code to update the UI.
