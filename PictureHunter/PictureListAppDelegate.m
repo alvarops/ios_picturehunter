@@ -12,7 +12,7 @@
 #import "Picture.h"
 #import "PictureListMasterViewController.h"
 
-static NSString *const TopPaidAppsFeed =
+static NSString *const PicturesFeed =
 @"http://picturehunter.herokuapp.com/api/images/";
 
 @interface PictureListAppDelegate ()
@@ -29,7 +29,7 @@ static NSString *const TopPaidAppsFeed =
 {
     // Override point for customization after application launch.
     
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:TopPaidAppsFeed]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:PicturesFeed]];
     self.appListFeedConnection = [[NSURLConnection alloc] initWithRequest:urlRequest delegate:self];
     
     // Test the validity of the connection object. The most likely reason for the connection object
@@ -52,7 +52,7 @@ static NSString *const TopPaidAppsFeed =
 - (void)handleError:(NSError *)error
 {
     NSString *errorMessage = [error localizedDescription];
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot Show Top Paid Apps"
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Cannot Show Pictures"
 														message:errorMessage
 													   delegate:nil
 											  cancelButtonTitle:@"OK"

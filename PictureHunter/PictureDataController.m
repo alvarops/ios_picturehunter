@@ -57,14 +57,14 @@
     [self.masterPictureList addObject:picture];
 }
 - (void)createPictureWithPicture:(Picture *)picture {
-    [self uploadImage:picture.image toURL:[NSURL URLWithString:@"http://picturehunter.herokuapp.com/api/images/"] withTitle:picture.title];
+    [self uploadImage:picture toURL:[NSURL URLWithString:@"http://picturehunter.herokuapp.com/api/images/"] withTitle:picture.title];
     [self.masterPictureList addObject:picture];
 }
 
-- (void)uploadImage:(UIImage *)image toURL:(NSURL *)url withTitle:(NSString *)title {
+- (void)uploadImage:(Picture *)picture toURL:(NSURL *)url withTitle:(NSString *)title {
     
     // encode the image as JPEG
-    NSData *imageData = UIImageJPEGRepresentation(image, 0.9);
+    NSData *imageData = UIImageJPEGRepresentation(picture.image, 0.9);
     
     // set up the request
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -88,8 +88,7 @@
     [body appendData:[
                       @"Content-Disposition: form-data; name=\"lat\"\r\n\r\n"
                       dataUsingEncoding:NSASCIIStringEncoding]];
-    [body appendData:[@"12.34"
-                      dataUsingEncoding:NSASCIIStringEncoding]];
+    [body appendData:[[[NSString alloc] initWithFormat:@"%f", picture.location.coordinate.latitude] dataUsingEncoding:NSASCIIStringEncoding]];
     
     // add a boundary to show where the lon starts
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary]
@@ -99,8 +98,7 @@
     [body appendData:[
                       @"Content-Disposition: form-data; name=\"lon\"\r\n\r\n"
                       dataUsingEncoding:NSASCIIStringEncoding]];
-    [body appendData:[@"12.5634"
-                      dataUsingEncoding:NSASCIIStringEncoding]];
+    [body appendData:[[[NSString alloc] initWithFormat:@"%f", picture.location.coordinate.latitude]dataUsingEncoding:NSASCIIStringEncoding]];
     
     // add a boundary to show where the file starts
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary]

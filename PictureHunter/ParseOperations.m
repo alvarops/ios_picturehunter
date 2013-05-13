@@ -30,7 +30,6 @@
 // -------------------------------------------------------------------------------
 //	main
 //  Entry point for the operation.
-//  Given data to parse, use NSXMLParser and process all the top paid apps.
 // -------------------------------------------------------------------------------
 - (void)main
 {
@@ -51,8 +50,13 @@
         for(NSDictionary *item in jsonArray) {
             NSLog(@"Item: %@", item);
             NSString *name = [item objectForKey:@"name"];
+            NSString *photo = [item objectForKey:@"photo"];
+            NSString *lat = [item objectForKey:@"lat"];
+            NSString *lon = [item objectForKey:@"lon"];
+            CLLocation *location = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lon floatValue]];
+
             NSDate *today = [NSDate date];
-            Picture *pic = [[Picture alloc] initWithTitle:name date:today location:name urlString:name];
+            Picture *pic = [[Picture alloc] initWithTitle:photo date:today location:location urlString:name];
             [self.workingArray addObject:pic];
             
         }

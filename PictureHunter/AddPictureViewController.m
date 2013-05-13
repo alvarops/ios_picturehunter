@@ -8,12 +8,17 @@
 
 #import "AddPictureViewController.h"
 #import "Picture.h"
+#import <CoreLocation/CoreLocation.h>
 
 @interface AddPictureViewController ()
 
 @end
 
 @implementation AddPictureViewController
+@synthesize locMgr = _locMgr;
+@synthesize delegate = _delegate;
+
+
 /*
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -33,6 +38,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    // this creates the CCLocationManager that will find your current location
+    locMgr = [[CLLocationManager alloc] init];
+    locMgr.delegate = self;
+    locMgr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    [locMgr startUpdatingLocation];
 }
 
 - (void)didReceiveMemoryWarning
@@ -147,8 +158,8 @@
             
             NSDate *today = [NSDate date];
             
-            picture = [[Picture alloc] initWithTitle:self.titleInput.text date:today location:self.locationInput.text];
-            picture.image = _imageView.image;
+            picture = [[Picture alloc] initWithTitle:self.titleInput.text date:today location:self.location];
+            picture.image = self.imageView.image;
             self.picture = picture;
             
         }
@@ -230,5 +241,25 @@
 {
 	// The user canceled -- simply dismiss the image picker.
 	[self dismissViewControllerAnimated:YES completion:NULL];
+}
+#pragma mark - Location Delegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+	if([self.delegate conformsToProtocol:@protocol(CoreLocationControllerDelegate)]) {  // Check if the class assigning itself as the delegate conforms to our protocol.  If not, the message will go nowhere.  Not good.
+		[self.delegate locationUpdate:newLocation];
+	}
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+	if([self.delegate conformsToProtocol:@protocol(CoreLocationControllerDelegate)]) {  // Check if the class assigning itself as the delegate conforms to our protocol.  If not, the message will go nowhere.  Not good.
+		[self.delegate locationError:error];
+	}
+}
+
+-(void)locationError:(NSError *)error {
+    NSLog(@"Location error %@", error);
+}
+
+-(void)locationUpdate:(CLLocation *)location {
+    self.location = location;
 }
 @end

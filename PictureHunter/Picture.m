@@ -7,9 +7,10 @@
 //
 
 #import "Picture.h"
+#import <CoreLocation/CoreLocation.h>
 
 @implementation Picture
--(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(NSString *)location urlString:(NSString *)urlString
+-(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(CLLocation *)location urlString:(NSString *)urlString
 {
     self = [super init];
     
@@ -26,7 +27,7 @@
     return nil;
 }
 
--(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(NSString *)location
+-(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(CLLocation *)location
 {
     return [self initWithTitle:title date:date location:location urlString:NULL];
 }

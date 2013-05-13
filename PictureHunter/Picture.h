@@ -7,15 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface Picture : NSObject
 @property (nonatomic, copy)NSString *title;
 @property (nonatomic, copy)NSDate *date;
-@property (nonatomic, copy)NSString *location;
+@property (nonatomic, copy)CLLocation *location;
 @property (nonatomic, copy)NSString *urlString;
 
 @property (nonatomic, copy)UIImage *image;
 
--(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(NSString*) location urlString:(NSString *)urlString;
--(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(NSString*) location;
+-(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(CLLocation*) location urlString:(NSString *)urlString;
+-(id)initWithTitle:(NSString *)title date:(NSDate *)date location:(CLLocation*) location;
 @end
