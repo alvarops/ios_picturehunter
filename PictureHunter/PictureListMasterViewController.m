@@ -48,6 +48,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)refreshTable:(UIBarButtonItem *)sender {
+    [self refreshAll];
+}
+
 -(void)addPicturesWithPictures:(NSArray *)pictures {
     [[self dataController] clear];
     for (Picture *picture in pictures){

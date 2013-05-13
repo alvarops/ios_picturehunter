@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) PictureDataController *dataController;
 
+- (IBAction)refreshTable:(UIBarButtonItem *)sender;
 -(void)addPicturesWithPictures:(NSArray *)pictures;
 @end

@@ -63,6 +63,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Pictures" id="36">
+                        <barButtonItem key="leftBarButtonItem" systemItem="refresh" id="WxD-iB-Zxg">
+                            <connections>
+                                <action selector="refreshTable:" destination="12" id="L65-xM-9Cz"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="8vS-zm-fdk">
                             <connections>
                                 <segue destination="4x5-pW-aVO" kind="modal" id="pbO-lf-Nlf"/>
@@ -399,6 +404,7 @@
             <relationships>
                 <relationship kind="action" name="cancel:" candidateClass="UIStoryboardSegue"/>
                 <relationship kind="action" name="done:" candidateClass="UIStoryboardSegue"/>
+                <relationship kind="action" name="refreshTable:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
             </relationships>
         </class>
