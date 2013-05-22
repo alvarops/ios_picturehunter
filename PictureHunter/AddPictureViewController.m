@@ -139,7 +139,7 @@
 #pragma mark - Text field delegate
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     
-    if ((textField == self.titleInput) || (textField == self.locationInput)) {
+    if (textField == self.titleInput) {
         [textField resignFirstResponder];
     }
     
@@ -155,7 +155,7 @@
     
     if ([[segue identifier] isEqualToString:@"ReturnInput"]) {
         
-        if ([self.titleInput.text length] || [self.locationInput.text length]) {
+        if ([self.titleInput.text length]) {
             
             Picture *picture;
             
@@ -178,15 +178,15 @@
 	
     if ([UIImagePickerController isSourceTypeAvailable:sourceType])
     {
-        NSLog(@"tap");
         UIImagePickerController *imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
+        imagePicker.sourceType = sourceType;
         [self presentViewController:imagePicker animated:YES completion:NULL];
     }
 }
 
 - (IBAction)pickPicture:(UIButton *)sender {
-    [self showImagePicker:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+    [self showImagePicker:UIImagePickerControllerSourceTypeCamera];
 }
 
 #pragma mark - Image picker delegate methods

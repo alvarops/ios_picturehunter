@@ -22,7 +22,6 @@
     id delegate;
 }
 @property (weak, nonatomic) IBOutlet UITextField *titleInput;
-@property (weak, nonatomic) IBOutlet UITextField *locationInput;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (strong, nonatomic) Picture *picture;
