@@ -62,11 +62,11 @@
     [self.masterPictureList addObject:picture];
 }
 - (void)createPictureWithPicture:(Picture *)picture {
-    [self uploadImage:picture toURL:[NSURL URLWithString:@"http://picturehunter.herokuapp.com/api/images/"] withTitle:picture.title];
+    [self uploadImage:picture toURL:[NSURL URLWithString:@"http://picturehunter.herokuapp.com/api/images/"]];
     [self.masterPictureList addObject:picture];
 }
 
-- (void)uploadImage:(Picture *)picture toURL:(NSURL *)url withTitle:(NSString *)title {
+- (void)uploadImage:(Picture *)picture toURL:(NSURL *)url {
     
     // encode the image as JPEG
     NSData *imageData = UIImageJPEGRepresentation(picture.image, 0.9);
@@ -103,7 +103,17 @@
     [body appendData:[
                       @"Content-Disposition: form-data; name=\"lon\"\r\n\r\n"
                       dataUsingEncoding:NSASCIIStringEncoding]];
-    [body appendData:[[[NSString alloc] initWithFormat:@"%f", picture.location.coordinate.latitude]dataUsingEncoding:NSASCIIStringEncoding]];
+    [body appendData:[[[NSString alloc] initWithFormat:@"%f", picture.location.coordinate.longitude]dataUsingEncoding:NSASCIIStringEncoding]];
+    
+    // add a boundary to show where the title starts
+    [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary]
+                      dataUsingEncoding:NSASCIIStringEncoding]];
+    
+    // add the title
+    [body appendData:[
+                      @"Content-Disposition: form-data; name=\"title\"\r\n\r\n"
+                      dataUsingEncoding:NSASCIIStringEncoding]];
+    [body appendData:[[[NSString alloc] initWithFormat:@"%@", picture.title] dataUsingEncoding:NSASCIIStringEncoding]];
     
     // add a boundary to show where the file starts
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n", boundary]
@@ -111,7 +121,7 @@
     
     // add a form field
     [body appendData:[[NSString stringWithFormat:
-                      @"Content-Disposition: form-data; name=\"photo\"; filename=\"%@.jpeg\"\r\n",title]
+                      @"Content-Disposition: form-data; name=\"photo\"; filename=\"%@.jpeg\"\r\n",[picture.title stringByReplacingOccurrencesOfString:@" " withString:@"_"]]
                       dataUsingEncoding:NSASCIIStringEncoding]];
     
     // tell the server to expect some binary

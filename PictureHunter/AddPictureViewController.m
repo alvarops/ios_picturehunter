@@ -43,7 +43,10 @@
     locMgr = [[CLLocationManager alloc] init];
     locMgr.delegate = self;
     locMgr.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
+    
     [locMgr startUpdatingLocation];
+    NSLog(@"Location started");
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -243,16 +246,16 @@
 	[self dismissViewControllerAnimated:YES completion:NULL];
 }
 #pragma mark - Location Delegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+   [self locationUpdate:[locations lastObject]];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-	if([self.delegate conformsToProtocol:@protocol(CoreLocationControllerDelegate)]) {  // Check if the class assigning itself as the delegate conforms to our protocol.  If not, the message will go nowhere.  Not good.
-		[self.delegate locationUpdate:newLocation];
-	}
+   [self locationUpdate:newLocation];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-	if([self.delegate conformsToProtocol:@protocol(CoreLocationControllerDelegate)]) {  // Check if the class assigning itself as the delegate conforms to our protocol.  If not, the message will go nowhere.  Not good.
-		[self.delegate locationError:error];
-	}
+	[self.delegate locationError:error];
 }
 
 -(void)locationError:(NSError *)error {
@@ -260,6 +263,8 @@
 }
 
 -(void)locationUpdate:(CLLocation *)location {
+    NSLog(@"Location found %@", location);
+    [locMgr stopUpdatingLocation];
     self.location = location;
 }
 @end

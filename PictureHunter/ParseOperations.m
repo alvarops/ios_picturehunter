@@ -50,7 +50,7 @@
         for(NSDictionary *item in jsonArray) {
             NSLog(@"Item: %@", item);
             NSString *name = [item objectForKey:@"name"];
-            NSString *photo = [item objectForKey:@"photo"];
+            NSString *photo = [item objectForKey:@"title"];
             NSString *lat = [item objectForKey:@"lat"];
             NSString *lon = [item objectForKey:@"lon"];
             CLLocation *location = [[CLLocation alloc] initWithLatitude:[lat floatValue] longitude:[lon floatValue]];
